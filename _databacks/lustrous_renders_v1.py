@@ -118,7 +118,8 @@ class DatabackendMinna:
         self.collate = collate
         self.dn = f'{self.args["base"]["dn"]}/_data/lustrous'
         self.bns = uutil.safe_bns(self.get_bns())
-        self.dtypes = set(self.args.load.dtypes) if self.args.load.dtypes!=None else set((
+        self.dtypes = set(self.args["load"]["dtypes"]) if self.args['load']['dtypes'] !=None else set((
+            
             'image', 'render_params',
         ))
         if 'render_params' in self.dtypes:
