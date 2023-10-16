@@ -169,7 +169,6 @@ def infer_module_checkpoint(run, ckpt, bargs=Dict(dn='.')):
     # run name + ckpt filename
     if ckpt is None: return None
     ir = infer_module_run(run, bargs=bargs)
-    print('infer_module_checkpoint', run, ckpt, ir)
     if isinstance(ckpt, str) and ckpt.isnumeric():
         ckpt = int(ckpt)
     if isinstance(ckpt, str):

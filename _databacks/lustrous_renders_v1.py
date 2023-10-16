@@ -111,15 +111,11 @@ class DatabackendMinna:
     )
     def __init__(self, args=None, collate=False):
         self.args_user = copy.deepcopy(args or Dict())
-        self.args = copy.deepcopy(self.default_args); 
-
-        print('default args:', self.default_args, '|self.args:', self.args, 'args:', args)
-        self.args.update(args or Dict())
+        self.args = copy.deepcopy(self.default_args); self.args.update(args or Dict())
         self.collate = collate
-        self.dn = f'{self.args["base"]["dn"]}/_data/lustrous'
+        self.dn = f'{self.args.base.dn}/_data/lustrous'
         self.bns = uutil.safe_bns(self.get_bns())
-        self.dtypes = set(self.args["load"]["dtypes"]) if self.args['load']['dtypes'] !=None else set((
-            
+        self.dtypes = set(self.args.load.dtypes) if self.args.load.dtypes!=None else set((
             'image', 'render_params',
         ))
         if 'render_params' in self.dtypes:
