@@ -80,6 +80,7 @@ seed = 0
 for bn in tqdm(bns):
     # preprocess
     x = dk[bn]
+    print('generate:x=', x, x.image.mode)
     with torch.no_grad():
         x['resnet_features'] = resnet(x.image)
         x['image_rmline'] = rmline(x.image, aligndata[bn])
