@@ -111,8 +111,10 @@ class DatabackendMinna:
     )
     def __init__(self, args=None, collate=False):
         self.args_user = copy.deepcopy(args or Dict())
-        print('default args:', self.default_args)
-        self.args = copy.deepcopy(self.default_args); self.args.update(args or Dict())
+        self.args = copy.deepcopy(self.default_args); 
+
+        print('default args:', self.default_args, '|args:', self.args)
+        self.args.update(args or Dict())
         self.collate = collate
         self.dn = f'{self.args.base.dn}/_data/lustrous'
         self.bns = uutil.safe_bns(self.get_bns())
